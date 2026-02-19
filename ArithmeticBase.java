@@ -5,7 +5,7 @@
  */
 package arithmetic;
 
-import java.util.Scanner;
+
 
 /** This class takes String input plus,minus,divide and times
  * from user and execute the arithmetic operation
@@ -15,25 +15,19 @@ import java.util.Scanner;
  */
 public class ArithmeticBase 
 {
- public double x,y;
-    double calculate(double x, double y) 
-        {
-        Scanner sc =new Scanner(System.in);
-        System.out.println("Enter arithmetic operation to Perform: ");
-        String s= sc.next();
-        switch (s.toUpperCase()) 
-        {
-            case "PLUS":
+    public double calculate(double x, double y, Operation op) {
+        switch (op) {
+            case PLUS:
                 return x + y;
-            case "MINUS":
+            case MINUS:
                 return x - y;
-            case "TIMES":
+            case TIMES:
                 return x * y;
-            case "DIVIDE":
+            case DIVIDE:
                 return x / y;
             default:
-                throw new AssertionError("Unknown operations " + this);
-        }
+                throw new IllegalArgumentException("Invalid operation");
     }
+}
    
 }
